@@ -5,6 +5,10 @@ class App < Rails::Application
   config.logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
   config.secret_key_base = SecureRandom.uuid
 
+  # For Glitch:
+  config.hosts << ENV['HOST'] if ENV.include? 'HOST'
+  puts ENV['HOST'] if ENV.include? 'HOST'
+
   routes.append { root to: 'app#index' }
 end
 
