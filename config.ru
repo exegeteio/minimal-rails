@@ -5,11 +5,11 @@ class App < Rails::Application
   config.logger = ActiveSupport::TaggedLogging.new(Logger.new(STDOUT))
   config.secret_key_base = SecureRandom.uuid
 
+  routes.append { root to: 'app#index' }
+
   # For Glitch:
   config.hosts << ENV['HOST'] if ENV.include? 'HOST'
-  puts ENV['HOST'] if ENV.include? 'HOST'
-
-  routes.append { root to: 'app#index' }
+  config.action_dispatch.default_headers.delete('X-Frame-Options')
 end
 
 class AppController < ActionController::Base
