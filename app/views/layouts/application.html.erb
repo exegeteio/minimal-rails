@@ -3,11 +3,22 @@
   <head>
     <meta charset='utf-8'>
     <meta content='width=device-width, initial-scale=1, shrink-to-fit=no' name='viewport'>
-    <title>Hello, World!</title>
+    <meta name="description" content="Smallest possible Rails app w/ great scores on lighthouse." />
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <title><%= yield :title %></title>
   </head>
   <body>
-    <div style="max-width: 960px; margin: auto; padding: 1rem; text-align: center;">
+    <header>
+      <h1><%= yield :title %></h1>
+    </header>
+    <main>
       <%= yield %>
-    </div>
+    </main>
+    <footer>
+      <p>
+        &copy; 2021 - Copy Right.
+        <span class="small">Because every site needs a copy, right?</span>
+      </p>
+    </footer>
   </body>
 </html>
