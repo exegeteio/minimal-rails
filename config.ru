@@ -8,7 +8,7 @@ class App < Rails::Application
   routes.append { root to: 'app#index' }
 
   # For Glitch:
-  config.hosts << ENV['HOST'] if ENV.include? 'HOST'
+  config.hosts << '.glitch.me'
   config.action_dispatch.default_headers.delete('X-Frame-Options')
 end
 
